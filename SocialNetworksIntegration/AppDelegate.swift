@@ -9,9 +9,13 @@
  * Copyright © 2018 ABNBoys.com All rights reserved.
 */
 
+//Google Auth ID
+//62885275411-0anpllh50gebatpo2goh47tb0lpe65fu.apps.googleusercontent.com
+
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import GoogleSignIn
 
 
 @UIApplicationMain
@@ -25,15 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        GIDSignIn.sharedInstance().clientID = "62885275411-0anpllh50gebatpo2goh47tb0lpe65fu.apps.googleusercontent.com"
+        
         
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        let FBhandled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
-        return handled
+        let googleHandled = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        return FBhandled && googleHandled
         
     }
 

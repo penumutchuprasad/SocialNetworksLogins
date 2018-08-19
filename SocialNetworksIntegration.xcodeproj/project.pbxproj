@@ -14,6 +14,7 @@
 		5B41262C212965C300F7E9B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B41262B212965C300F7E9B4 /* Assets.xcassets */; };
 		5B41262F212965C300F7E9B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B41262D212965C300F7E9B4 /* LaunchScreen.storyboard */; };
 		5B4126372129D3B600F7E9B4 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4126362129D3B600F7E9B4 /* UIViewController + Ext.swift */; };
+		5B4126392129F44B00F7E9B4 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B4126382129F44B00F7E9B4 /* credentials.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		5B41262E212965C300F7E9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B412630212965C300F7E9B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B4126362129D3B600F7E9B4 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		5B4126382129F44B00F7E9B4 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		7AC7DD918C7512AD7CAC0767 /* Pods-SocialNetworksIntegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworksIntegration.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworksIntegration/Pods-SocialNetworksIntegration.release.xcconfig"; sourceTree = "<group>"; };
 		C10885DE21779CC03BB60CA5 /* Pods-SocialNetworksIntegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworksIntegration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworksIntegration/Pods-SocialNetworksIntegration.debug.xcconfig"; sourceTree = "<group>"; };
 		EC63909BFB642CFF87533E33 /* Pods_SocialNetworksIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworksIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				5B41262D212965C300F7E9B4 /* LaunchScreen.storyboard */,
 				5B412630212965C300F7E9B4 /* Info.plist */,
 				5B4126362129D3B600F7E9B4 /* UIViewController + Ext.swift */,
+				5B4126382129F44B00F7E9B4 /* credentials.plist */,
 			);
 			path = SocialNetworksIntegration;
 			sourceTree = "<group>";
@@ -103,6 +106,7 @@
 				5B41261E212965C100F7E9B4 /* Frameworks */,
 				5B41261F212965C100F7E9B4 /* Resources */,
 				6ECFF10E64F27DA4812EED61 /* [CP] Embed Pods Frameworks */,
+				A98E8CC120FF5C3227CE34AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B41262F212965C300F7E9B4 /* LaunchScreen.storyboard in Resources */,
+				5B4126392129F44B00F7E9B4 /* credentials.plist in Resources */,
 				5B41262C212965C300F7E9B4 /* Assets.xcassets in Resources */,
 				5B41262A212965C100F7E9B4 /* Main.storyboard in Resources */,
 			);
@@ -170,12 +175,18 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -198,6 +209,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A98E8CC120FF5C3227CE34AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetworksIntegration/Pods-SocialNetworksIntegration-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetworksIntegration/Pods-SocialNetworksIntegration-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

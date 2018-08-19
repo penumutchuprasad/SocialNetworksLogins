@@ -20,11 +20,10 @@
 
 import UIKit
 import FBSDKLoginKit
+import GoogleSignIn
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-    
-    
-
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate,GIDSignInDelegate {
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,12 +36,25 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.readPermissions = ["email", "public_profile"]
         view.addSubview(loginButton)
         
+        setupDefaultGoogleUI()
         
         if FBSDKAccessToken.current() != nil {
             print("User alredy logged-in")
 //            print(FBSDKAccessToken.current().tokenString)
         }
 
+    }
+    
+    func setupDefaultGoogleUI() {
+        
+        let googleLoginButton = GIDSignInButton.init()
+        googleLoginButton.frame = CGRect(x: 16, y: 300, width: view.frame.width - 32, height: 50)
+        
+        view.addSubview(googleLoginButton)
+        
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -108,7 +120,54 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             
         }
     }
+    
+    @IBAction func onCustomGoogleSignIn(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signIn()
+        
+    }
+    
+    @IBAction func onGoogleSignOutpressed(_ sender: UIButton) {
+        
+        GIDSignIn.sharedInstance().signOut()
+    }
+    
+    
 
+    //Google Sign In
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // ...
+            
+            print(userId ?? "")
+            print(idToken ?? "")
+            print(fullName ?? "")
+            print(givenName ?? "")
+            print(familyName ?? "")
+            print(email ?? "@com")
+        }
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Disconnected by user")
+    }
+    
+    
+    //UIDelegate Protocol
+    
+    
+    
 
 }
 

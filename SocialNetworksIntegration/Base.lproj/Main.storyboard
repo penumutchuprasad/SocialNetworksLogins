@@ -32,18 +32,49 @@
                                     <action selector="onCustFBLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfH-cV-HwF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcx-M3-I7e">
+                                <rect key="frame" x="16" y="459" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.66515020709999995" green="0.97540801759999995" blue="0.1214486181" alpha="0.57336258559999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Google Sign In">
+                                    <color key="titleColor" red="0.08235294118" green="0.56862745100000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCustomGoogleSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="euF-69-UIi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y7-f7-Tuf">
+                                <rect key="frame" x="213" y="559" width="150" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.68948844149999999" blue="0.1264209385" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5uN-Bt-Dm5"/>
+                                    <constraint firstAttribute="height" constant="45" id="dHg-di-fgd"/>
+                                </constraints>
+                                <state key="normal" title="GoogleSignOut"/>
+                                <connections>
+                                    <action selector="onGoogleSignOutpressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wei-k2-SiI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F1j-VW-OyI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1lg-o8-pfH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F1j-VW-OyI" secondAttribute="trailing" constant="16" id="b3A-LS-YLI"/>
+                            <constraint firstItem="Lcx-M3-I7e" firstAttribute="top" secondItem="F1j-VW-OyI" secondAttribute="bottom" constant="239" id="FTE-wf-uEm"/>
+                            <constraint firstItem="Lcx-M3-I7e" firstAttribute="width" secondItem="F1j-VW-OyI" secondAttribute="width" id="Ngg-w4-AbJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="F1j-VW-OyI" secondAttribute="trailing" constant="16" id="b3A-LS-YLI"/>
+                            <constraint firstItem="Lcx-M3-I7e" firstAttribute="centerX" secondItem="F1j-VW-OyI" secondAttribute="centerX" id="bjN-8u-rN4"/>
+                            <constraint firstItem="7Y7-f7-Tuf" firstAttribute="top" secondItem="Lcx-M3-I7e" secondAttribute="bottom" constant="50" id="f84-Kc-bMv"/>
+                            <constraint firstItem="7Y7-f7-Tuf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="hVf-Xr-fFX"/>
+                            <constraint firstItem="Lcx-M3-I7e" firstAttribute="height" secondItem="F1j-VW-OyI" secondAttribute="height" id="jFj-2U-VYl"/>
                             <constraint firstItem="F1j-VW-OyI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="kKT-Rj-8qN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Y7-f7-Tuf" secondAttribute="trailing" constant="12" id="snk-dB-zcF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="29.600000000000001" y="51.724137931034484"/>
         </scene>
     </scenes>
 </document>
